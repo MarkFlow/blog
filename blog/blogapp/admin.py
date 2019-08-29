@@ -4,10 +4,18 @@ from django.utils.html import format_html
 
 from .models import Category, Tag, Post
 from .adminforms import PostAdminForm
+from blog.custom_site import custom_site
 
 
-@admin.register(Category)
+class PostInline(admin.TabularInline):  # stackedInline样式不同
+    fields = ('title', 'desc')
+    extra = 1  # 控制额外多几个
+    model = Post
+
+
+@admin.register(Category, site=custom_site)
 class CategoryAdmin(admin.ModelAdmin):
+    inlines = [PostInline, ]
     list_display = ('name', 'status', 'is_nav', 'created_time')
     fields = ('name', 'status', 'is_nav')
 
@@ -21,7 +29,7 @@ class CategoryAdmin(admin.ModelAdmin):
         return super().save_model(request, obj, form, change)
 
 
-@admin.register(Tag)
+@admin.register(Tag, site=custom_site)
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name', 'status', 'created_time')
     fields = ('name', 'status')
@@ -47,7 +55,7 @@ class CategoryOwnerFilter(admin.SimpleListFilter):
         return queryset
 
 
-@admin.register(Post)
+@admin.register(Post, site=custom_site)
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
     list_display = [
@@ -88,7 +96,7 @@ class PostAdmin(admin.ModelAdmin):
     def operator(self, obj):
         return format_html(
             '<a href="{}">编辑</a>',
-            reverse('admin:blogapp_post_change', args=(obj.id,))
+            reverse('cus_admin:blogapp_post_change', args=(obj.id,))
         )
     operator.short_description = '操作'
 
