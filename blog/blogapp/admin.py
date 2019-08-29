@@ -4,7 +4,7 @@ from django.utils.html import format_html
 
 from .models import Category, Tag, Post
 from .adminforms import PostAdminForm
-from blog.custom_site import custom_site
+from blog.blog.custom_site import custom_site
 
 
 class PostInline(admin.TabularInline):  # stackedInline样式不同
