@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Link, SideBar
-from blog.blog.custom_site import custom_site
+from blog.custom_site import custom_site
 
 
 @admin.register(Link, site=custom_site)
