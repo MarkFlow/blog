@@ -48,10 +48,13 @@ class CategoryOwnerFilter(admin.SimpleListFilter):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = [CategoryOwnerFilter]
+    list_display = [
+        'title', 'category', 'status',
+        'created_time', 'operator', 'owner'
+    ]
     list_display_links = []
 
-    list_filter = ['category']
+    list_filter = [CategoryOwnerFilter]
     search_fields = ['title', 'category__name']
 
     actions_on_top = True
@@ -78,5 +81,9 @@ class PostAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.owner = request.user
         return super().save_model(request, obj, form, change)
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.filter(owner=request.user)
 
 
