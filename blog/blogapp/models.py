@@ -50,7 +50,7 @@ class Post(models.Model):
         (STATUS_DELETE, '删除'),
         (STATUS_DRAFT, '草稿'),
     )
-    title = models.CharField(max_length=255, verbose_name='标签')
+    title = models.CharField(max_length=255, verbose_name='标题')
     desc = models.CharField(max_length=1024, blank=True, verbose_name='摘要')
     content = models.TextField(help_text='正文需要MarkDown格式', verbose_name='正文')
     status = models.PositiveIntegerField(default=STATUS_NORMAL, choices=STATUS_ITEM, verbose_name='状态')
