@@ -34,7 +34,7 @@ class TagAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     list_display = [
         'title', 'category', 'status',
-        'created_user', 'operator'
+        'created_time', 'operator'
     ]
     list_display_links = []
 
