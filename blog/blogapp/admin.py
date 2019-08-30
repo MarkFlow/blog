@@ -1,6 +1,8 @@
 from django.contrib import admin
+from django.contrib.admin.models import LogEntry
 from django.urls import reverse
 from django.utils.html import format_html
+
 
 from .models import Category, Tag, Post
 from .adminforms import PostAdminForm
@@ -101,5 +103,11 @@ class PostAdmin(BaseOwnerAdmin):
         }
         js = ('https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.js',)
 
+
+@admin.register(LogEntry, site=custom_site)
+class LogEntryAdmin(admin.ModelAdmin):
+    list_display = ['object_repr', 'object_id', 'action_flag', 'user',
+                    'change_message'
+                    ]
 
 
