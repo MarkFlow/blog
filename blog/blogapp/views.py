@@ -20,7 +20,7 @@ def post_list(request, category_id=None, tag_id=None):
 
 def post_detail(request, post_id):
     try:
-        post = Post.objetcs.get(id=post_id)
+        post = Post.objects.get(id=post_id)
     except Post.DoesNotExist:
         post = None
     return render(request, 'blog/detail.html', context={'post': post})
