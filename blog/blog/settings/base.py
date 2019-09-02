@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'blog'
+    'blog',
     'blogapp',
     'config',
     'comment',
