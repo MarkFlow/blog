@@ -22,8 +22,8 @@ from .custom_site import custom_site
 
 urlpatterns = [
     re_path(r'^$', post_list),
-    re_path(r'^category/(?P<category_id>\d+) /$', post_list),
-    re_path(r'^tag/(?P<tag_id>\d+) /$', post_list),
+    re_path(r'^category/(?P<category_id>\d+)/$', post_list),
+    re_path(r'^tag/(?P<tag_id>\d+)/$', post_list),
     re_path(r'^post/(?P<post_id>\d+).html$', post_detail),
     re_path(r'^links/$', links),
 

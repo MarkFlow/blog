@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>myBlog博客系统</title>
 </head>
 <body>
      {% if tag %}
-     标签页： {{ tag.name }}
+     标签页: {{ tag.name }}
      {% endif %}
 
      {% if category %}
-     分类页： {{ category.name }}
+     分类页: {{ category.name }}
      {% endif %}
 
      <ul>
          {% for post in post_list %}
 
      <li>
-         <a href="/post/{{ post_id }}.html">{{ post.title }}</a>
+         <a href="/post/{{ post.id }}.html">{{ post.title }}</a>
          <div>
              <span>作者:{{ post.owner.username }}</span>
              <span>分类:{{ post.category.name }}</span>
