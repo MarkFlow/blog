@@ -32,7 +32,8 @@ def post_detail(request, post_id):
         post = None
 
     context = {
-        'post': post
+        'post': post,
+        'sidebars': SideBar.get_all(),
     }
     context.update(Category.get_navs())
     return render(request, 'blog/detail.html', context=context)

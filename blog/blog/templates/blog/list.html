@@ -33,9 +33,11 @@
          <a href="/category/{{ cate.id }}.html">{{ cate.name }}</a>
          {% endfor %}
      </div>
+     <div>
      {% for sidebar in sidebars %}
         <h4>{{ sidebar.title }}</h4>
          {{ sidebar.content }}
      {% endfor %}
+     </div>
 </body>
 </html>
