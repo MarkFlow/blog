@@ -1,7 +1,7 @@
 {% extends "./base.html" %}
 {% block title %} {{ post.title }} {% endblock %}
 
-{% block title %}
+{% block main %}
       {% if post %}
       <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
       <div>
