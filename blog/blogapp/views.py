@@ -29,7 +29,7 @@ def post_list(request, category_id=None, tag_id=None):
         'post_list': post_list
     }
 
-    return render(request, 'blog/list.html', context={'context': context})
+    return render(request, 'blog/list.html', context=context)
 
 
 def post_detail(request, post_id):
