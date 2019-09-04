@@ -94,7 +94,7 @@ class TagView(IndexView):
         return queryset.filter(tag_id=tag_id)
 
 
-class PostDetailView(DetailView):
+class PostDetailView(CommonViewMixin, DetailView):
     model = Post
     template_name = 'blog/detail.html'
     context_object_name = 'post'
