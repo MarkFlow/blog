@@ -3,7 +3,8 @@
 
 {% block main %}
       {% if post %}
-      <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+<!--      <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a> -->
+       <h1>{{ post.title }}</h1>>
       <div>
              <span>分类:{{ post.category.name }}</span>
              <span>作者:{{ post.owner.username }}</span>

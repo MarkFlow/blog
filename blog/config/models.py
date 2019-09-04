@@ -81,7 +81,6 @@ class SideBar(models.Model):
 
         return result
 
-
     @classmethod
     def get_all(cls):
         return cls.objects.filter(status=cls.STATUS_SHOW)
