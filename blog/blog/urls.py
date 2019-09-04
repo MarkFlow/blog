@@ -19,7 +19,7 @@ from django.urls import path, re_path
 #from blogapp.views import post_list, post_detail
 from blogapp.views import (
     IndexView, CategoryView, TagView,
-    PostDetailView
+    PostDetailView,
 )
 from config.views import links
 from .custom_site import custom_site

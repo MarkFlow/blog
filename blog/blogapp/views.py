@@ -95,7 +95,7 @@ class TagView(IndexView):
 
 
 class PostDetailView(CommonViewMixin, DetailView):
-    model = Post
+    queryset = Post.latest_posts()
     template_name = 'blog/detail.html'
     context_object_name = 'post'
     pk_url_kwarg = 'post_id'
