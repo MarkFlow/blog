@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path, re_path
 
 #from blogapp.views import post_list, post_detail
-from blogapp.views import PostDetailView
+from blogapp.views import (
+    IndexView, CategoryView, TagView,
+    PostDetailView
+)
 from config.views import links
 from .custom_site import custom_site
 
 urlpatterns = [
-    re_path(r'^$', post_list, name='index'),
-    re_path(r'^category/(?P<category_id>\d+)/$', post_list, name='category-list'),
-    re_path(r'^tag/(?P<tag_id>\d+)/$', post_list, name='tag-list'),
+    re_path(r'^$', IndexView.as_view(), name='index'),
+    re_path(r'^category/(?P<category_id>\d+)/$', CategoryView.as_view(), name='category-list'),
+    re_path(r'^tag/(?P<tag_id>\d+)/$', TagView.as_view(), name='tag-list'),
 #    re_path(r'^post/(?P<post_id>\d+).html$', post_detail, name='post-detail'),
     re_path(r'^post/(?P<pk>\d+).html$', PostDetailView.as_view(), name='post-detail'),
     re_path(r'^links/$', links, name='links'),
