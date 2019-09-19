@@ -31,7 +31,6 @@ class Category(models.Model):
             'categories': normal_categories,
         }
 
-
     class Meta:
         verbose_name = verbose_name_plural = '分类'
 
